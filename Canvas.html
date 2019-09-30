@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas HTML</title>
+<style type="text/css">
+	canvas{
+		background-color: grey;
+	}
+
+</style>
+</head>
+<body>
+<canvas width="800" height="400" id="canvas"></canvas>
+<script type="text/javascript">
+	var c=document.getElementById('canvas');
+	var ctx=c.getContext('2d');
+	var width =125;
+	var height = 105;
+	var padding = 20;
+
+	//lingkaran2
+	ctx.beginPath();
+	ctx.arc(350,200,120,0,2*Math.PI);
+	ctx.fillStyle="maroon";
+	ctx.lineWidth=4;
+	ctx.strokeStyle="white";
+	ctx.stroke();
+	ctx.fill();
+	//lingkaran1
+	ctx.beginPath();
+	ctx.arc(350,200,80,0,2*Math.PI);
+	ctx.fillStyle="orange";
+	ctx.lineWidth = 4;
+	ctx.strokeStyle="white";
+	ctx.stroke();
+	ctx.fill();
+	//kotak1
+	ctx.beginPath();
+	ctx.rect(300.5,148.7,101,101);
+	ctx.fillStyle = "white";
+	ctx.fill();
+	//kotak2
+	ctx.beginPath();
+	ctx.rect(302,150,98,98);
+	ctx.fillStyle = "grey";
+	ctx.fill();
+	//segitiga1
+	ctx.beginPath();
+	ctx.moveTo(700,180);
+	ctx.lineTo(600,100);
+	ctx.lineTo(600,270);
+	ctx.closePath();
+	ctx.fillStyle="blue";
+	ctx.stroke();
+	ctx.fill();
+	//segiitga2
+	ctx.beginPath();
+	ctx.moveTo(20,200);
+	ctx.lineTo(120,100);
+	ctx.lineTo(120,280);
+	ctx.closePath();
+	ctx.lineWidth =3;
+	ctx.fillStyle="blue";
+	ctx.stroke();
+	ctx.fill();
+	
+
+
+
+
+</script>
+</body>
+</html>
