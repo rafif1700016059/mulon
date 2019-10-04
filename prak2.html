@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#canvas{
+			background: #F0FFFF;
+			
+		}
+	</style>
+</head>
+<body>
+<canvas width="800px" height="400px" id="canvas">
+	<script type="text/javascript"> 
+	alert('klik 2x untuk memutus dan memberi warna');</script>
+</canvas>
+<script type="text/javascript">
+	var c=document.getElementById('canvas');
+	var ctx= c.getContext('2d');
+
+
+	document.body.addEventListener('mousedown',draw1);
+	document.body.addEventListener('dblclick',hasil2);
+	document.body.addEventListener('dblclick',hasil);
+
+	
+	function draw1 (e) {
+		
+		var x = e.offsetX;
+		var y = e.offsetY;
+		ctx.lineTo(x,y);
+		ctx.lineWidth=2;
+		ctx.strokeStyle='black'
+		ctx.stroke();
+		
+	}
+
+
+function hasil(d){
+	if (d.mouseclick == false) {
+
+	}else{
+		ctx.beginPath();
+		var x = e.offsetX;
+		var y = e.offsetY;
+		var z = ctx.beginPath();
+ 		ctx.lineTo(x,y,z);
+		ctx.lineWidth=2;
+		ctx.strokeStyle='black'
+		ctx.stroke();
+		ctx.closePath();
+
+	}
+}
+
+
+function hasil2()
+	{
+			ctx.fillStyle='red';
+			ctx.fill();		
+			ctx.closePath();
+		
+		
+	}
+
+
+
+
+
+
+</script>
+	
+</body>
+</html>
