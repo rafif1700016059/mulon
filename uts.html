@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style type="text/css">
+      
+      #canvas{
+        border-radius: 3px;
+        background-color: pink;
+        transform: translate(380px,100px);
+      }
+      #canvas:hover{
+        background: orange;
+      }
+      .btn{transform: translate(380px,100px);
+          transition: 0.3;
+          opacity: 0.7;
+          font-weight: bold;
+          color: white;
+      }
+      .btn:hover{
+        transform: translate(380px,100px);
+        font-weight: bold;
+        transition: 0.3s;
+        opacity: 1;
+        background: orange;
+         
+  
+        }
+    </style>
+</head>
+<body>
+        <canvas id="canvas" style="border: 1px solid" width="600" height="300"></canvas>
+        <br>
+       <button class="btn btn-primary" onclick="start()" type="submit">start</button>
+       <button class="btn btn-danger" onclick="stop()" type="submit">stop</button>
+        
+        
+<script>
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+var raf;
+
+var ball = {
+  x: 100,
+  y: 100,
+  vx: 5,
+  vy: 2,
+  radius: 25,
+  warna: 'blue',
+  draw: function() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+    ctx.closePath();
+    ctx.fillStyle = this.warna;
+    ctx.fill();
+  }
+};
+
+function draw() {
+
+    
+  ctx.clearRect(2,2, canvas.width, canvas.height);
+  ball.draw();
+  ball.x += ball.vx;
+  ball.y += ball.vy;
+
+  if (ball.y + ball.vy > canvas.height ||
+      ball.y + ball.vy < 0) {
+    ball.vy = -ball.vy;
+  }
+  if (ball.x + ball.vx > canvas.width ||
+      ball.x + ball.vx < 0) {
+    ball.vx = -ball.vx;
+  }
+
+  raf = window.requestAnimationFrame(draw);
+}
+
+function stop(){
+    window.cancelAnimationFrame(raf).stop();
+}
+function start(){
+    raf=window.requestAnimationFrame(draw);
+}
+
+ball.draw();</script>
+</body>
+</html>
